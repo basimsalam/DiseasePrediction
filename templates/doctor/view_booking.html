@@ -1,0 +1,29 @@
+{% extends 'doctor/doctorindex.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table width="200" border="1" class="table table-dark table-striped">
+    <tr>
+      <td>S.No</td>
+      <td>FromTime</td>
+      <td>To Time </td>
+      <td>Date</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td>{{ forloop.counter }}</td>
+      <td>&nbsp;{{ i.SCHEDULE.fromtime }}</td>
+      <td>{{ i.SCHEDULE.totime }}&nbsp;</td>
+      <td>&nbsp;{{ i.date }}</td>
+        <td><label><a href="/prescription/{{ i.id }}#about">Add Prescription</a></label></td>
+      <td><label><a href="/view_booking_delete/{{ i.id}}" class="btn btn-outline-danger">Delete</a></label></td>
+
+    </tr>
+    {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}

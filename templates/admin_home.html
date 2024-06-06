@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><style type="text/css">/* Reset some default styles for better consistency across browsers */
+body, h1, h2, p, table {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif; /* Change the font-family as needed */
+  background-color: #1d1d1d /* Set a background color */
+}
+
+#form1 {
+  width: 200px;
+  margin: 50px auto; /* Center the form on the page */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+table, td {
+  border: 1px solid #ccc;
+}
+
+td {
+  padding: 10px;
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+  color: #FFFFFF /* Link color */
+  display: block; /* Make the entire table cell clickable */
+}
+
+a:hover {
+  background-color: #1d1d1d /* Change background color on hover */
+}
+
+input[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  background-color: #4CAF50; /* Green button color */
+  color: white; /* Text color */
+  border: none;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #45a049; /* Darker green on hover */
+}
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="/logout_code">
+  <table width="200" border="1">
+    <tr>
+      <td><a href="manage_expert">MANAGE EXPERT</a></td>
+    </tr>
+    <tr>
+      <td><a href="verify_doc">VERIFY DOCTOR</a>      </td>
+    </tr>
+    <tr>
+      <td><a href="view_user">VIEW USER</a>      </td>
+    </tr>
+    <tr>
+      <td><a href="feedback">VIEW FEEDBACK</a> </td>
+    </tr>
+    <tr>
+      <td><a href="complaints">VIEW COMPLIANTS AND SEND REPLY</a> </td>
+    </tr>
+    <tr>
+      <td><a href="blockaunb">BLOCK/ UNBLOCK DOCTOR</a></td>
+    </tr>
+	<tr>
+      <td><a href="blockaunbExp">BLOCK/ UNBLOCK EXPERT</a></td>
+    </tr>
+    <tr>
+      <td><label>
+        <div align="center">
+          <input type="submit" name="Submit" value="LOGOUT" />
+          </div>
+      </label></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>

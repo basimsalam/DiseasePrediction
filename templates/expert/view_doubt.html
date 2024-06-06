@@ -1,0 +1,39 @@
+ {% extends 'expert/expertindex.html' %}
+{% block body %}
+<body>
+<div align="center"><strong>View Doubt And Reply</strong>
+</div>
+<form id="form1" name="form1" method="post" action="/searchdoubt">
+  <table width="200" border="1"   class="table table-dark table-hover">
+    <tr>
+      <td>Date</td>
+      <td colspan="2"><label>
+        <input type="date" name="textfield" style="padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 200px;" />
+      </label></td>
+      <td><label>
+        <input type="submit" name="Submit" value="search" class="btn btn-outline-info"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td><b>Name</b></td>
+      <td><b>Date</b></td>
+      <td><b>Doubts</b></td>
+      <td>&nbsp;<b>Reply</b></td>
+    </tr>
+      {% for i in val %}
+    <tr>
+      <td>&nbsp;{{ i.USER.fname }} {{ i.USER.lname }}</td>
+      <td>&nbsp;{{ i.date }}</td>
+      <td>&nbsp;{{ i.doubt }}</td>
+      <td>{% if i.reply == 'pending' %}<a href="sendreply/{{ i.id }}">Reply</a>{% else %}{{ i.reply }}{% endif %}</td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+<p>&nbsp;</p>
+</body>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends 'adminindex.html' %}
+{% block body %}
+
+<body  style="background-color: #1d1d1d;">
+<form id="form1" name="form1" method="post" action="/blockaunb_search#about">
+
+<table width="482" border="1" class="table table-dark table-striped">
+  <tr>
+    <td width="46" align="center">NAME</td>
+    <td colspan="3">
+      <label>
+        <input type="text" name="textfield" placeholder="Enter the name..."/>
+        </label>
+         </td>
+    <td width="81">
+      <label>
+        <input type="submit" name="Submit" value="SEARCH" class="btn btn-outline-info"/>
+        </label>
+    </form>    </td>
+  </tr>
+  <tr>
+      <td width="150" align="center"><h6><b>DOCTOR ID</b></h6></td>
+    <td width="300" align="center"><h6><b>NAME</b></h6></td>
+    <td width="400" align="center"><h6><b>SPECIALIZATION</b></h6></td>
+    <td width="52" colspan="3">&nbsp;</td>
+  </tr>
+    {% for i in data %}
+  <tr>
+    <td align="center">&nbsp;{{ i.id }}</td>
+    <td align="center">&nbsp;{{ i.fname }}</td>
+    <td align="center">&nbsp;{{ i.specialization}}</td>
+    <td colspan="2" align="center">      <label></label>
+    <form id="form5" name="form5" method="post" action="">
+        <label>
+            {% if i.LOGIN.type == 'doctor' %}
+        <div align="center"><a href="/blockaunb_block/{{ i.LOGIN.id }}" style="color: #FF0000" >BLOCK</a></div>
+        </label>
+        {% else %}
+        <a href="/blockaunb_unblock/{{ i.LOGIN.id }}" >UNBLOCK</a>
+        {% endif %}
+    </form></td>
+  </tr>
+    {% endfor %}
+</table>
+</body>
+{% endblock %}

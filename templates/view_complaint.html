@@ -1,0 +1,43 @@
+  {% extends 'adminindex.html' %}
+{% block body %}
+
+<body  style="background-color: #1d1d1d;">
+<form id="form1" name="form1" method="post" action="/complaints_search#about">
+  <table width="794" border="1" class="table table-dark table-striped">
+    <tr align="left">
+
+      <td colspan="4" ><label>
+        <input type="date" name="textfield" style="padding: 10px;
+  font-size: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 200px;" />
+      </label></td>
+      <td width="263" colspan="2" align="left"><label>
+        <input type="submit" name="Submit" value="SEARCH" class="btn btn-outline-info"/>
+      </label></td>
+    </tr>
+    <tr align="center">
+      <td height="50"><h6><b>USERNAME</b></h6></td>
+      <td width="250"><h6><b>COMPLAINT</b></h6></td>
+      <td width="250"><h6><b>DATE</b></h6></td>
+      <td colspan="2">&nbsp;</td>
+    </tr>
+      {% for i in data %}
+    <tr align="center">
+      <td>{{ i.USER.fname }}</td>
+      <td>{{ i.complaint }}</td>
+      <td>{{ i.date}}</td>
+      <td colspan="2"><label>
+          {% if i.reply == "pending" %}
+        <div align="center"><a href="adminreply/{{ i.id }}">REPLY</a></div>
+          {% else %}
+              {{ i.reply }}
+          {% endif %}
+        </label></td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+ {% endblock %}

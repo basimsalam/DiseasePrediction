@@ -1,0 +1,40 @@
+{% extends 'expert/expertindex.html' %}
+{% block body %}
+
+<body>
+<div align="center"><strong>Manage Tips</strong>
+</div>
+<form id="form1" name="form1" method="post" action="/manage_tips_post">
+  <table width="200" border="1"   class="table table-dark table-hover" style="width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    border-radius: 10px; /* Set the border radius for curved corners */
+    overflow: hidden;">
+    <tr>
+      <td align="center"><h2>Tips</h2></td>
+      <td><label>
+        <textarea name="textarea"  style="padding: 10px; font-size: 14px; border: 1px solid #3498db; border-radius: 10px; width: 100%; resize: vertical;"
+                  rows="2" cols="50"
+          placeholder="Enter your tipss..."></textarea>
+
+
+      </label></td>
+      <td><label>
+        <input type="submit" name="Submit" value="Add" class="btn btn-outline-primary"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td colspan="2"><div align="center"><b>Tips</b></div></td>
+      <td>&nbsp;</td>
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td colspan="2">&nbsp;{{ i.tip }}</td>
+      <td><a href="/manage_tip_delete/{{ i.id}}">Delete</a></td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+<p>&nbsp;</p>
+</body>
+{% endblock %}

@@ -1,0 +1,33 @@
+ {% extends 'adminindex.html' %}
+{% block body %}
+
+<body style="background-color: #1d1d1d;">
+
+<form id="form1" name="form1" method="post" action="/feedback_search#about">
+  <table width="400" border="1" class="table table-dark table-striped">
+    <tr>
+      <td colspan="3" align="right"><label>
+        <input type="date" name="textfield" />
+      </label></td>
+      <td width="63"><label>
+        <input type="submit" name="Submit" value="SEARCH" class="btn btn-outline-info"/>
+      </label></td>
+    </tr>
+    <tr align="center">
+      <td>FEEDBACK</td>
+      <td width="300">USERNAME</td>
+      <td width="250" colspan="2">DATE</td>
+    </tr>
+      {% for i in data %}
+    <tr align="center">
+
+      <td>{{ i.feedback }}</td>
+      <td>&nbsp;{{ i.USER.fname}}{{ i.USER.lname }}</td>
+        <td>&nbsp;{{ i.date}}</td>
+
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+ {% endblock %}

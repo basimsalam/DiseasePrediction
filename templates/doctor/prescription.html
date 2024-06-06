@@ -1,0 +1,53 @@
+{% extends 'doctor/doctorindex.html' %}
+{% block body %}
+
+<form action="/prescription_post" method="post" enctype="multipart/form-data" name="form1" id="form1">
+  <table class="table table-hover">
+    <tr>
+      <td height="159"><table width="200" border="1" class="table table-hover">
+        <tr>
+          <td>Prescription</td>
+          <td><label>
+            <textarea name="textarea"></textarea>
+          </label></td>
+        </tr>
+        <tr>
+          <td>Report</td>
+          <td><label>
+            <input type="file" name="file" />
+          </label></td>
+        </tr>
+        <tr>
+            <td></td>
+          <td ><label>
+            <div align="center">
+              <input type="submit" name="Submit" value="SEND" class="btn btn-outline-primary" />
+              </div>
+          </label></td>
+          </tr>
+      </table></td>
+    </tr>
+    <tr>
+      <td height="165"><table class="table table-dark table-striped">
+        <tr>
+          <td width="69">S.no</td>
+          <td width="70">Prescription</td>
+          <td width="68">Report</td>
+          <td width="71">Date</td>
+          <td width="71"></td>
+        </tr>
+          {% for i in data %}
+        <tr>
+          <td>{{ forloop.counter }}&nbsp;</td>
+          <td>{{ i.prescription }}&nbsp;</td>
+          <td>&nbsp;{{ i.report }}</td>
+          <td>{{ i.date }}</td>
+        <td><a href="/prescription_delete/{{ i.id }}" class="btn btn-outline-danger">Delete</a> </td>
+        </tr>
+              {% endfor %}
+      </table></td>
+    </tr>
+
+  </table>
+</form>
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends 'doctor/doctorindex.html' %}
+{% block body %}
+
+<body >
+
+<form id="form1" name="form1" method="post" action="/manage_schedule_post#about">
+  <table width="200" border="1" class="table table-dark table-striped">
+    <tr>
+      <td>From Time </td>
+      <td><label>
+        <input type="text" name="textfield" style="border: 1px solid #ccc;
+  border-radius: 10px;
+  width: 200px;
+  background-color: #f2f2f2;"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>To Time </td>
+      <td><label>
+        <input type="text" name="textfield2" style="border: 1px solid #ccc;
+  border-radius: 10px;
+  width: 200px;
+  background-color: #f2f2f2;" />
+      </label></td>
+    </tr>
+    <tr>
+      <td>Date</td>
+      <td><label>
+        <input type="date" name="textfield3" style="padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 200px;" />
+      </label></td>
+    </tr>
+    <tr>
+      <td align="center" colspan="2"><label>
+        <div align="center">
+          <input name="Submit" type="submit" id="Submit" value="Add" class="btn btn-outline-primary"/>
+        </div>
+      </label></td>
+    </tr>
+  </table>
+  <table width="200" border="1" class="table table-dark table-striped">
+  <tr>
+    <td>Sno</td>
+    <td>Date</td>
+    <td>From Time </td>
+    <td>To Time </td>
+    <td></td>
+  </tr>
+       {% for i in data %}
+  <tr>
+    <td>{{ forloop.counter }}</td>
+    <td>{{ i.date }}</td>
+    <td>{{ i.fromtime }}</td>
+    <td>{{ i.totime }}</td>
+      <td><p><a href="/manage_schedule_edit/{{ i.id }}" >Edit</a></p>
+      <p><a href="/manage_schedule_delete/{{ i.id }}" style="color: #FF0000">Delete</a></p></td>
+  </tr>
+      {% endfor %}
+</table>
+</form>
+</body>
+{% endblock %}

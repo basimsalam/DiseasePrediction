@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml
+      ns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Untitled Document</title>
+</head>
+<style>body {
+    font-family: Arial, sans-serif;
+
+    background-color: #1d1d1d;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+form {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table, th, td {
+    border: 1px solid #3498db;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #4CAF50;
+    color: #ffffff;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="submit"] {
+    padding: 8px;
+    margin-bottom: 10px;
+    width: calc(100% - 16px);
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    background-color: #00c848;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #2980b9;
+}
+</style>
+<body>
+
+<form id="form1" name="form1" method="post" action="/manage_schedule_edit_post">
+  <table width="200" border="1"  class="table table-borderless">
+    <tr>
+      <td>From Time </td>
+      <td><label>
+        <input type="text" name="textfield" value="{{ data.fromtime }}" />
+      </label></td>
+    </tr>
+    <tr>
+      <td>To Time </td>
+      <td><label>
+        <input type="text" name="textfield2" value="{{ data.totime }}" />
+      </label></td>
+    </tr>
+    <tr>
+      <td>Date</td>
+      <td><label>
+        <input type="date" name="textfield3" value="{{ data.date }}" />
+      </label></td>
+    </tr>
+    <tr>
+      <td colspan="2"><label>
+        <div align="center">
+          <input name="Submit" type="submit" id="Submit" value="Add" />
+        </div>
+      </label></td>
+    </tr>
+  </table>
+  <table width="200" border="1">
+
+</form>
+</body>
+</html>

@@ -1,0 +1,70 @@
+{% extends 'adminindex.html' %}
+{% block body %}
+<body  style="background-color: #1d1d1d;">
+<form id="form1" name="form1" method="post" action="/verify_doc_search#about">
+
+<table width="482" border="1" class="table table-dark table-striped">
+  <tr>
+
+    <td colspan="9" align="right">
+      <label>
+        <input type="text" name="textfield" style="border: 1px solid #ccc;
+  border-radius: 10px;
+  width: 200px;
+  background-color: #f2f2f2;" placeholder="Enter the name..." />
+        </label>
+     </td>
+    <td width="81">
+      <label>
+        <input type="submit" name="Submit" value="SEARCH" class="btn btn-outline-info" align="center"/>
+        </label>
+    </td>
+  </tr>
+  <tr>
+    <td align="center"><b>NAME</b></td>
+    <td align="center" width="144"><b>PHONENO</b></td>
+      <td align="center" width="144"><b>Email</b></td>
+      <td align="center" width="144"><b>QUALIFICATION</b></td>
+
+       <td align="center" width="125"><b>PLACE</b></td>
+      <td align="center" width="144"><b>POST</b></td>
+
+      <td align="center" width="144"><b>PIN</b></td>
+    <td align="center" width="144"><b>DOB</b></td>
+      <td align="center" width="144"><b>SPECIALIZATION</b></td>
+
+
+    <td align="center" width="52" colspan="2">&nbsp;</td>
+  </tr>
+
+    {% for i in data %}
+  <tr align="center">
+    <td>{{ i.fname }} {{ i.lname }}</td>
+    <td>{{ i.phoneno }}</td>
+    <td>{{ i.email }}</td>
+      <td>{{ i.qualification }}</td>
+        <td>{{ i.place }}</td>
+      <td>{{ i.post }}</td>
+       <td>{{ i.pin }}</td>
+      <td>{{ i.dob }}</td>
+       <td>{{ i.specialization }}</td>
+      {% if i.LOGIN.type == 'pending' %}
+    <td colspan="2">      <label></label>
+
+        <label>
+        <div align="center">
+        <a href="/verify_doc_accept/{{ i.LOGIN.id }}">ACCEPT</a></div>
+        </label>
+  <a href=" /verify_doc_reject/{{ i.LOGIN.id }}">REJECT</a></td>
+  {% elif i.LOGIN.type == 'rejected' %}
+  <td>Rejected</td>
+  {% else %}
+  <td>Accepted</td>
+  {% endif %}
+  </tr>
+    {% endfor %}
+</table>
+  </form>
+</body>
+{% endblock %}
+

@@ -1,0 +1,61 @@
+{% extends 'adminindex.html' %}
+{% block body %}
+
+<body  style="background-color: #1d1d1d;">
+<form id="form1" name="form1" method="post" action="/view_user_search#about">
+
+<table width="482" border="1" class="table table-dark table-striped">
+  <tr align="center">
+
+    <td colspan="9" align="right">
+      <label>
+        <input type="text" name="textfield" placeholder="Enter the name" />
+        </label>
+     </td>
+    <td width="81">
+      <label>
+        <input type="submit" name="Submit" value="SEARCH" class="btn btn-outline-info"/>
+        </label>
+        </td>
+  </tr>
+  <tr align="center">
+    <td>NAME</td>
+    <td width="144">PHONENO</td>
+      <td width="144">Email</td>
+      <td width="144">QUALIFICATION</td>
+
+       <td width="125">PLACE</td>
+      <td width="144">POST</td>
+
+      <td width="144">PIN</td>
+    <td width="144">DOB</td>
+      <td width="144">GENDER</td>
+
+
+    <td width="52" colspan="2">&nbsp;</td>
+  </tr>
+
+    {% for i in data %}
+  <tr align="center">
+    <td>{{ i.fname }}{{ i.lname }}</td>
+    <td>{{ i.phoneno }}</td>
+    <td>{{ i.email }}</td>
+      <td>{{ i.qualification }}</td>
+        <td>{{ i.place }}</td>
+      <td>{{ i.post }}</td>
+       <td>{{ i.pin }}</td>
+      <td>{{ i.dob }}</td>
+       <td>{{ i.gender }}</td>
+      {% if i.LOGIN.type == 'pending' %}
+    <td >
+        <a href="/user_accept/{{ i.LOGIN.id }}" class="button-like">ACCEPT</a></td><br>
+  <td><a href="/user_reject/{{ i.LOGIN.id }}" class="button-like">REJECT</a></td>
+          {% else %}
+          <td>{{ i.LOGIN.type }}</td>
+  </tr>
+        {% endif %}
+    {% endfor %}
+</table>
+</form>
+</body>
+{% endblock %}
